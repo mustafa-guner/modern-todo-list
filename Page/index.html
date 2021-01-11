@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Browser Icon-->
+    <link rel="icon" href="../Images/project.png">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <!--CSS-->
+    <link rel="stylesheet" href="../CSS/roots.css">
+    <link rel="stylesheet" href="../CSS/sidebar.css">
+    <link rel="stylesheet" href="../CSS/mainPage.css">
+    
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pompiere&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <title>Developer Dashboard</title>
+</head>
+
+<body>
+    <!--Main Page-->
+    <main>
+        <i id="profile" class="fas fa-user-circle"></i>
+        <div id="hamburger" class="hamburger-menu">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <div class="container">
+            <header>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <h1 id="taskHeader">Untitled</h1>
+                        <!-- <h1 id="taskHeader">Untitled</h1> -->
+                        <hr>
+                    </div>
+                </div>
+            </header>
+           
+            <div id="addTask">
+                <form id="addInputs" class="d-flex">
+                    <div class="form-row text-center">
+                        <div class="col-md-2 col-lg-3">
+                            <label for="start">Start Time</label>
+                            <input id="start" type="time" placeholder="Enter Start Time">
+                        </div>
+                        <div class="col-md-2 col-lg-3 text-center">
+                            <label for="end">End Time</label>
+                            <input id="end" type="time" placeholder="Enter End Time">
+                        </div>
+                        <div class="col-md-2 col-lg-3 text-center">
+                            <label for="titles">Title</label>
+                            <input id="titles" type="text" placeholder="Enter Title">
+                        </div>
+                        <div class="col-md-2 col-lg-3 text-center">
+                            <label for="location">Location</label>
+                            <input id="location" type="text" placeholder="Enter Location">
+                        </div>
+                    </div>
+                    <button id="addBtn" class="btn m-4" type="submit">+</button>
+                </form>
+                <div id="errorBlock" class="text-center"></div>
+            </div>
+
+        
+            <div id="taskListsPart">
+                <div class="cal-desc">
+                    <div class="descriptionOfCalendar">
+                        <h3>Description: </h3>
+                        <p id="calendar-desc"><i class="fas fa-exclamation-circle text-warning"></i> No description yet.</p>
+                    </div>
+                    <div class="createdAt">
+                        <h3>Date: </h3>
+                       <p id="calender-date"><i class="fas fa-exclamation-circle text-warning"></i> No date yet.</p>
+                    </div>
+                </div>
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th id="counterID" scope="col">#</th>
+                            <th scope="col">Start Time</th>
+                            <th scope="col">End Time</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tasklist">
+                        <!---<tr>
+                            <th id="count" scope="row">1</th>
+                            <td>08:30</td>
+                            <td>10:30</td>
+                            <td>Presentation</td>
+                            <td>School</td>
+                            <td><i class="fas fa-pen-square text-warning"></i></td>
+                            <td><i class="fas fa-trash text-danger"></i></i></td>
+                        </tr>
+                        <tr>
+                            <th id="count" scope="row">1</th>
+                            <td >08:30</td><a class="btn"></a>
+                            <td>10:30</td>
+                            <td>Presentation</td>
+                            <td>School</td>
+                            <td><i class="fas fa-pen-square text-danger"></i></td>
+                            <td><i class="fas fa-trash text-danger"></i></i></td>
+                        </tr>-->
+
+                    </tbody>
+                </table>
+                <button id="saveToLocalStorageBtn" class="btn btn-success">Save</button>
+                <button id="deleteAll" class="btn btn-danger float-right mr-2">Clear All</button>
+            </div>
+        </div>
+    </main>
+
+
+    <!--Profile Information (Left-Side-Bar)-->
+    <div class="profile-informations">
+        <h3>Hey,👋</h3>
+        <div class="profile-photo">
+            <img src="../Images/ben.jpeg">
+        </div>
+        <p>Mustafa Guner</p>
+        <p class="job">IT , JS Developer</p>
+        <p>Please feel free to use this app! If you have any idea or problem about this dashboard, please
+            let me know!</p>
+        <p>💻</p>
+        <i id="close-profile" class="fas fa-caret-left"></i>
+    </div>
+
+
+    <!--Side Bar (Right-Side-Bar)-->
+    <div id="side-bar">
+        <i id="closeBtn" class="fas fa-times-circle"></i>
+        <img id="logo" src="../Images/project.png">
+        <h2>~Developer Dashboard~</h2>
+        <div id="menu">
+            <div id="createUI" class="create">
+                <img class="add-icon" src="../Icons/add.svg" />
+                <h4>CREATE NEW LIST</h4>
+            </div>
+            <div id="doneUI" class="done">
+                <img class="done-icon" src="../Icons/done.svg" />
+                <h4>SAVED TASK LISTS</h4>
+            </div>
+        </div>
+        <div class="dark-mode">
+            <h3>Dark Mode</h3>
+            <div class="button-bg">
+                <input name="theme" type="checkbox" id="switch" /><label for="switch">ON</label>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p>Designed & Developed By</p>
+            <a class="madeBy" href="mailto:mustafa-guner.guner@outlook.com?subject = Feedback&body = Message">Mustafa
+                Guner</a>
+        </div>
+
+        <!--Create New Task-->
+        <div class="creating-UI">
+            <i id="closeCreating" class="fas fa-times text-danger"></i>
+            <h1>Create New Task</h1>
+            <hr>
+            <form id="createTaskHeader">
+                <label for="CreateTitle">Title Of Task List</label>
+                <input id="CreateTitle" type="text">
+                <label>What will it be about?</label>
+                <textarea id="descrpt-project" maxlength="55"></textarea>
+                <button type="submit" class="btn btn-success">Create</button>
+            </form>
+        </div>
+        <!--Done TaskLists-->
+        <div class="savedLists">
+            <i id="closeSaved" class="fas fa-times text-danger"></i>
+            <h1>Saved Task Lists</h1>
+            <hr>
+            <div class="savedTaskTable">
+                <div class="doneTable">
+                    <h3>My Calendar For January</h3>
+                </div>
+                <div class="doneTable">
+                    <h3>My Calendar For January</h3>
+                </div>
+                <div class="doneTable">
+                    <h3>My Calendar For January</h3>
+                </div>
+                <div class="doneTable">
+                    <h3>My Calendar For January</h3>
+                </div>
+                <div class="doneTable">
+                    <h3>My Calendar For January</h3>
+                </div>
+                <div class="doneTable">
+                    <h3>My Calendar For January</h3>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    </div>
+
+    <!--UI Transaction Javascript Files - Page Transitions-->
+    <script src="../UI/dark-mode.js"></script>
+    <script src="../UI/profile-Information.js"></script>
+    <script src="../UI/side-Bar.js"></script>
+    <script src="../UI/saved-TaskList.js"></script>
+    <script src="../UI/create-TaskListTitle.js"></script>
+
+    <!--To Do List Javascript Files-->
+    <script src="../JS/Ui.js"></script>
+    <script src="../JS/taskHeader.js"></script>
+    <script src="../JS/./Controllers/formHandling.js"></script>
+    <script src="../JS/Task.js"></script>
+    <script src="../JS/app.js"></script>
+
+    <!--Sweet Alert Library For Customized Alert Boxes-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+
+</html>

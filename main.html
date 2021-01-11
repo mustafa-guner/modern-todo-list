@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Dashboard - Welcome!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pompiere&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="icon" href="Images/project.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section>
+        <div id="left-section">
+            <div class="blured-bg"></div>
+            <div class="content-block">
+                <div class="logo">
+                    <a href="#">Developer's Dashboard<span>.</span> by Mustafa Guner 👋,</a>
+                </div>
+                <div class="headers">
+                    <h1><span>Welcome </span>to the board!</h1>
+                    <p>Are you ready for creating the most powerful dashboard in the <span id="change">universe</span> ?</p>
+                    <a id="directorBtn" href="./Page/index.html">Let's Go !</a>
+                </div>
+                <div class="gallery">
+                    <h3><span>D</span>esign Showcase</h3>
+                    <div class="about">
+                        <div class="social">
+                            <a href="https://www.instagram.com/guner_dev" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://dribbble.com/musdy_guner99" target="_blank"><i class="fab fa-dribbble"></i></a>
+                            <a href="https://github.com/slex1one-Musdy?tab=overview&from=2020-12-01&to=2020-12-31" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                        <div class="img-gallery">
+                            <img src="Designs/Design-1.png">
+                        </div>
+                        <div class="img-gallery">
+                            <img src="Designs/Design-2.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right-section">
+            <div class="img-container">
+                <div class="stars">
+                    <div class="one-line">
+                        <i class="fas fa-star"></i>
+                        <i id="bottom" class="fas fa-star orange"></i>
+                    </div>
+                  
+                    <div class="second-line">
+                        <i class="fas fa-star"></i>
+                        <i id="bottom" class="fas fa-star orange"></i>
+                        <i id="bottom" class="fas fa-star"></i>
+                    </div>
+                </div>
+                <img src="Images/rocket.jpg">
+            </div>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+    <script src="Animations/gsap.js"></script>
+    <script>
+
+        //Random Text Generator for Paragraph ["universe","world"]
+         $(document).ready(function(){
+        let textBox = ["universe","world"];
+
+        let numberPocket = [];
+        setInterval(()=>{
+
+                let randomText = Math.ceil(Math.random()*textBox.length-1); 
+                
+                if(numberPocket[numberPocket.length-1] !== randomText){
+                   numberPocket.push(randomText);
+                   console.log(numberPocket)
+                  $("#change").text(textBox[randomText])
+                }
+        },1000)
+          
+      })
+    </script>
+</body>
+
+</html>
