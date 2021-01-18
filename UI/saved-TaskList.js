@@ -3,11 +3,11 @@
  const closeSaved = document.getElementById("closeSaved");
  const savedSection = document.querySelector(".savedLists");
 
- savedTasks.onclick = () => {
-    
-     savedSection.classList.add("bringDoneUI");
- }
+savedTasks.addEventListener("click",()=>{
+    savedSection.classList.add("bringDoneUI");
+ })
 
-closeSaved.onclick = () => {
+
+ closeSaved.addEventListener("click",()=>{
     savedSection.classList.remove("bringDoneUI");
- }
+ })

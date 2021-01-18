@@ -6,6 +6,7 @@ main {
     top: 0;
     margin: 90px 0;
   }
+ 
 
   /*Hamburger Menu*/
   .hamburger-menu {
@@ -71,8 +72,9 @@ main {
     color: var(--main-header-text);
     overflow: hidden;
     text-align: center;
-    font-family: 'Lobster', cursive;
-    text-decoration: underline;
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Lobster', cursive; */
+    
   }
   
   main .container #addTask, main header #addTask {
@@ -105,7 +107,7 @@ main {
   
   main .container #addTask #addBtn, main header #addTask #addBtn {
     float: right;
-    font-size: 3rem;
+    font-size: 4rem;
     color: #5cb85c;
     
   }
@@ -125,11 +127,18 @@ main {
   
   main .container #taskListsPart th, main header #taskListsPart th {
     color: var(--th-color);
-    padding: 2rem;
+    padding: 1.5rem;
   }
   
   main .container #taskListsPart td, main header #taskListsPart td {
     color: var(--th-color);
+    
+  }
+
+  main .container #taskListsPart td, main header #taskListsPart td input{
+    align-self: center;
+    margin-top: 3rem !important;
+  
   }
 
   /*Created Task list Inputs*/
@@ -153,10 +162,6 @@ main {
     float: right;
   }
   
-  main .container #taskListsPart #counterID {
-    color: #FE3745;
-  
-  }
 
   main .container .cal-desc{
     display: flex;

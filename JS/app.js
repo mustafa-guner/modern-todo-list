@@ -5,8 +5,8 @@
 const taskHeader = document.getElementById("taskHeader");
 
 //Description - Date Part
-const calendarDescription = document.getElementById("calendar-desc");
-const calendarCreatedDate = document.getElementById("calender-date");
+//const calendarDescription = document.getElementById("calendar-desc");
+//const calendarCreatedDate = document.getElementById("calender-date");
 
 /*List Form Elements - Main Page*/
 const form = document.querySelector("#addInputs");
@@ -25,35 +25,52 @@ const count = document.getElementById("count");
 //Save Button To Local Storage All Data
 const save = document.getElementById("saveToLocalStorageBtn");
 
+//Delete All Btn
+const deleteALL = document.getElementById("deleteAll")
+
+
 
 let taskManager = () => {
+    //Brings the latest element of list
+
     return new Promise((resolve, reject) => {
-        //If user didnt define any title.
-        if (taskHeader.textContent === "Untitled") {
+        //If user didnt define any title or content
+        if (!UI.getLastAddedStorageList()) {
             reject("It seems you are new here.You should create new task header before you start!");
         } else {
-            resolve(taskHeader.textContent)
+            //If he has ,bring the data of key!
+            resolve(UI.loadAllSavedItems())
         }
     }).then(res => {
-        console.log(res)
+        console.log(res);
+        UI.getDatasBackToUI(res);
     }).catch(err => {
         taskHeader.classList.add("disabled-header");
-        calendarDescription.classList.add("disabled-header");
-        calendarCreatedDate.classList.add("disabled-header");
+        // calendarDescription.classList.add("disabled-header");
+        //calendarCreatedDate.classList.add("disabled-header");
 
         disablingAllFormInputs();
         UI.errorBlock("routing_processes", "You have to create task title before you start!");
         //Mop-up for displaying the error
         Swal.fire({
-            title: "Welcome!",
-            text: err,
-            confirmButtonText: "Got it!",
-            icon: "warning",
-            //Directing to CREATE TITLE Section
-        }).then(() => {
-            Swal.fire("Redirecting..")
+            icon: 'warning',
+            title: 'Welcome!',
+            text:err,
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          }).then(() => {
+            Swal.fire({
+                position: 'center-center',
+                title: 'Redirecting..',
+                showConfirmButton: false,
+                timer: 1100
+              })
             sideBar.classList.add("bringMenu");
-            creatingSection.classList.add("bringCreatingUI")
+            creatingSection.classList.add("bringCreatingUI");
         })
     })
 }
@@ -62,15 +79,29 @@ let taskManager = () => {
 addEventListeners();
 
 function addEventListeners() {
-    document.addEventListener("DOMContentLoaded", taskManager,);
+
+    //Loading saved items to saved lists section when the document reloaded.
+    document.addEventListener("DOMContentLoaded", taskManager);
 
     form.addEventListener("submit", addInputs);
-    tasklist.addEventListener("click", deleteAnItem);
-    // save.addEventListener("click", saveToLocalStorage);
+
+    tasklist.addEventListener("click",e=>{
+        UI.deleteAnItem(e)
+    });
+
+    //SAVING DATAS TO LOCAL STORAGE.
+    save.addEventListener("click", ()=>{
+        LocalStorage.saveToLocalStorage()
+    });
+
+    //Delete ALL
+    deleteALL.addEventListener("click",()=>{
+       LocalStorage.deleteFromTableList(taskHeader.innerText)
+    })
 }
 
 //Starting auto increment of ID From 0
-let IDcount =  1;
+let IDcount = 1;
 
 function addInputs(e) {
     //Preventing the submit 
@@ -90,13 +121,14 @@ function addInputs(e) {
     if (!validation.every((task) => task.value != "")) {
 
         UI.errorBlock("danger", "Can't Be Empty!");
+
         IDcount--;
 
     } else {
-        
+
         //Creating new Task From the Task Object 
-        const task = new Task(start.value, end.value, title.value, location.value,id);
-       
+        const task = new Task(start.value, end.value, title.value, location.value, id);
+
         UI.addNewTask(task);
 
         UI.errorBlock("success", "Added Succesfuly.")
@@ -105,70 +137,13 @@ function addInputs(e) {
 
         //Sending validation values to clear input
         UI.clearInputs(validation);
-
-        //return task;
-    }
-}
-
-
-//Deleting a spesific task.
-function deleteAnItem(e) {
-    let targetElement = e.target;
-    if (targetElement.id === "editAnItem") {
-        //let arr = new Array(e.target.parentElement.parentElement.textContent);
-        targetParent = targetElement.parentElement.parentElement.childNodes;
-        UI.editATask(targetParent);
-    }
-
-
-    if (e.target.id === "deleteAnItem") {
-        if (confirm("Are You Sure Delete This Task?")) {
-            e.target.parentElement.parentElement.remove();
-            UI.errorBlock("success", "Deleted Succesfully.")
-        } else {
-            UI.errorBlock("primary", "DELETE CANCELED")
-        }
-
     }
 }
 
 
 
-// //Save Functions
-
-// (function saveHelperFunction(tasks){
-
-//     e.preventDefault()
-//     addItemsToLocalStorage(tasks)
-
-// },addInputs(e));
-
-// function getItemsFromLocalStorage(){
-
-//     let tasks;
-
-//     if(localStorage.getItem("tasks") === null){
-//         tasks = [];
-//     } else{
-//         tasks = JSON.parse(localStorage.getItem("tasks"))
-//     }
-//     return tasks;
-// }
-
-// function addItemsToLocalStorage(tasksItems){
-//     let taskList = getItemsFromLocalStorage();
-
-//     taskList.push(tasksItems)
-
-//     localStorage.setItem("tasks",JSON.stringify(taskList));
-// }
 
 
-// //Local Storage Save Function
-// function saveToLocalStorage() {
-//     const savedItems = saveHelperFunction();
-//     console.log(savedItems)
-//     addItemsToLocalStorage(savedItems);
 
-// }
+
 
