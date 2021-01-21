@@ -59,6 +59,8 @@ createTaskHeaderForm.addEventListener("submit", (e) => {
                 //calendarCreatedDate.classList.remove("disabled-header");
                 //calendarDescription.classList.remove("disabled-header");
                 taskHeader.classList.remove("disabled-header"); ///->Removes disabled header style.
+                deleteALL.disabled = false;
+                save.disabled = false;
                 UI.errorBlock("routing_processes", "message", "remove"); //->Removes the Warning Message.
                 EnablingAllFormInputs();//-> Enables the access on form elements.
     

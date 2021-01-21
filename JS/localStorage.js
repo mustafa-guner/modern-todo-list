@@ -96,7 +96,7 @@ static saveToLocalStorage() {
     static deleteFromTableList(listKey){
 
         if(listKey){
-
+           
             let specifiedList = this.getItemsFromLocalStorage(listKey);
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {

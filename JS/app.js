@@ -46,6 +46,8 @@ let taskManager = () => {
         UI.getDatasBackToUI(res);
     }).catch(err => {
         taskHeader.classList.add("disabled-header");
+        deleteALL.disabled = true;
+        save.disabled = true;
         // calendarDescription.classList.add("disabled-header");
         //calendarCreatedDate.classList.add("disabled-header");
 

@@ -73,7 +73,9 @@ static deleteAnItem(e) {
      //Deletes ALL DATA FROM UI AND LOCAL STORAGE
      static deleteAll(){
         let taskList = document.getElementById("tasklist");
-        if(tasklist.childNodes.length>3){
+        let specifiedList = LocalStorage.getItemsFromLocalStorage(taskList);
+        console.log(taskList.childNodes.length)
+        if(tasklist.childNodes.length>=3){
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
                   confirmButton: 'btn btn-success',
@@ -97,6 +99,8 @@ static deleteAnItem(e) {
                            task.remove();
                         }
                     })
+                    let deletedNewArr = specifiedList.slice(1)
+                    localStorage.setItem(taskList,JSON.stringify(deletedNewArr))
                   swalWithBootstrapButtons.fire(
                     'Deleted!',
                     'Your file has been deleted.',
@@ -345,7 +349,8 @@ static deleteAnItem(e) {
                         taskHeader.innerText = "untitled"
                         disablingAllFormInputs();
                         UI.errorBlock("routing_processes", "You have to create task title before you start!");
-                       
+                        save.disabled = true;
+                        deleteALL.disabled = true;
                         swalWithBootstrapButtons.fire(
                         'Deleted!',
                         'Your file has been deleted.',
