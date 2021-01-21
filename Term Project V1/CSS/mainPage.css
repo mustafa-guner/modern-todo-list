@@ -1,0 +1,263 @@
+main {
+    width: 85%;
+    display: flex;
+    transform: translateX(7%);
+    overflow-y: hidden;
+    top: 0;
+    margin: 90px 0;
+  }
+ 
+
+  /*Hamburger Menu*/
+  .hamburger-menu {
+    cursor: pointer;
+    transition: all .8s ease-in;
+    height: 30px;
+    overflow: hidden;
+  }
+  .bar2:hover{
+    transform: rotate(360deg);
+  }
+   .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 3px;
+    background-color: var(--main-header-text);
+    margin: 6px 0 6px 10px;
+    transition: 0.7s;
+  }
+  
+   .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+  #profile{
+    color:var(--main-header-text);
+    font-size: 2rem;
+    margin-right: .6rem;
+    text-align: center;
+    padding: .2rem .1rem;
+    height: 35px;
+    width: 43px;
+    overflow: hidden;
+  }
+  
+  main .container, main header {
+    
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    height: 100%;
+    
+  }
+  
+  main .container h1, main header h1 {
+    color: var(--main-header-text);
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Lobster', cursive; */
+    
+  }
+  
+  main .container #addTask, main header #addTask {
+    padding: 4rem;
+  }
+  
+  main .container #addTask label, main header #addTask label {
+    color: var(--label-color);
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+  
+   input[type="time"]::-webkit-calendar-picker-indicator,
+   input[type="time"]::-webkit-calendar-picker-indicator {
+    -webkit-filter: invert(48%) sepia(13%) saturate(320%) hue-rotate(130deg) brightness(95%) contrast(80%);
+            filter: invert(48%) sepia(13%) saturate(320%) hue-rotate(130deg) brightness(95%) contrast(80%);
+  }
+  
+  main .container #addTask input, main header #addTask input,.creating-UI input{
+    border-radius: 0;
+    border: none;
+    border-bottom: 0.1rem solid var(--input-text-color);
+    font-size: 1rem;
+    color: var(--input-text-color);
+    background-color: transparent;
+    text-align: center;
+  }
+  
+  
+  
+  main .container #addTask #addBtn, main header #addTask #addBtn {
+    float: right;
+    font-size: 4rem;
+    color: #5cb85c;
+    
+  }
+  
+  main .container #taskListsPart, main header #taskListsPart {
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 2rem;
+    margin-top: 1rem;
+    height: auto;
+    background-color: var(--lists-bg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  main .container #taskListsPart th, main header #taskListsPart th {
+    color: var(--th-color);
+    padding: 1.5rem;
+  }
+  
+  main .container #taskListsPart td, main header #taskListsPart td {
+    color: var(--th-color);
+    
+  }
+
+  main .container #taskListsPart td, main header #taskListsPart td input{
+    align-self: center;
+    margin-top: 3rem !important;
+  
+  }
+
+  /*Created Task list Inputs*/
+  .createdTaskElement{
+    color: var(--th-color);
+    background-color:transparent;
+    border: none;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .createdTaskElement:enabled{
+    border: 1px solid #5CB85C;
+    background-color:#5cb85c;
+    color: white; 
+  }
+
+  
+  
+  main .container #taskListsPart #saveToLocalStorageBtn, main header #taskListsPart #saveToLocalStorageBtn {
+    float: right;
+  }
+  
+
+  main .container .cal-desc{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: var(--main-header-text);
+    overflow: hidden;
+    
+  }
+
+  main .cal-desc .descriptionOfCalendar,.createdAt{
+    display: flex;
+    overflow: hidden;
+  }
+
+  main .container .cal-desc .descriptionOfCalendar h3 , main .container .cal-desc .createdAt h3{
+    
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2.3rem;
+    overflow: hidden;
+    font-family: 'Lobster', cursive;
+    color: var(--main-header-text); 
+    
+  }
+
+ 
+  main .container .cal-desc  p, main .container .cal-desc .createdAt  p{
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-left: .4rem;
+    color: var(--main-header-text);
+    letter-spacing: .1rem;
+  }
+
+  .profile-informations{
+    width:200px;
+    height: 500px;
+    background-color: var(--blured-bg-sidebar);
+    position: absolute;
+    top:150px;
+    left: -10px;
+    border:1px solid rgba(228, 233, 237, 0.4);
+    border-radius: 10px;
+    bottom: 0;
+    padding: 2rem;
+    overflow: hidden;
+    transform: translateX(-100%);
+    transition: transform .6s ease-in-out;
+  }
+
+  .profile-informations.active-profile{
+    transform: translateX(0);
+  }
+
+
+  .profile-informations h3{
+    text-align: center;
+    color: var(--main-header-text);
+  }
+
+  .profile-informations .profile-photo{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin: 15px auto
+  ;
+  }
+  .profile-informations .profile-photo img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .profile-informations p{
+    text-align: center;
+    color: var(--main-header-text);
+  }
+  .profile-informations .job{
+    font-size: .7rem;
+    color: gray;
+    margin-top: 0;
+  }
+
+  .profile-informations #close-profile{
+    position: absolute;
+    color: rgba(103, 128, 159, 1);
+    right: -5px;
+    top: 40%;
+    font-size: 5rem;
+    transition:all .7s ease-out;
+  }
+
+  .profile-informations #close-profile:hover{
+    color: rgba(255, 255, 255, 0.932);
+    padding-right: 1rem;
+  }
