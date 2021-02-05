@@ -11,4 +11,4 @@ This to do list is very simple and fun to use! Do you like dark mode? There is a
 4. Modular JS
 
 
-![alt text](https://github.com/[slex1one-Musdy]/[Modern-Todo-List]/[master]/Designs/Design-2.jpg?raw=true)
+![alt text](https://github.com/[slex1one-Musdy]/[Modern-Todo-List]/[master]/[blob]/Designs/Design-2.jpg?raw=true)
