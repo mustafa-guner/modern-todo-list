@@ -11,4 +11,4 @@ This to do list is very simple and fun to use! Do you like dark mode? There is a
 4. Modular JS
 
 
-https://github.com/github/{Modern=Todo-List}/Designs/Design-2.png 
+![myimage-alt-tag](Modern-Todo-List/Designs/Design-2.png)
