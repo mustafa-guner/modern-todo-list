@@ -11,4 +11,6 @@ This to do list is very simple and fun to use! Do you like dark mode? There is a
 4. Modular JS
 5. DOM Manipulation
 
+Go to live site: https://modern-todo-list.netlify.app/
+
 ![myimage-alt-tag](https://www.upwork.com/att/download/portfolio/persons/uid/1275576759788146688/profile/projects/files/f0030171-ef3c-4010-92bd-87c9338dbda0)
